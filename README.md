@@ -6,6 +6,8 @@ Quanto será a demanda nos próximos dias? Esta API parte de um histórico diár
 
 O experimento dá atenção à pergunta que vem depois da previsão: **ela é melhor do que repetir a última semana?** A comparação usa cortes temporais e inclui tanto uma série sintética quanto a base pública UCI Bike Sharing.
 
+O modelo de aprendizado de máquina usa **gradient boosting com árvores**, alimentado por valores anteriores da série e informações de calendário. A API aplica a previsão de forma recursiva para cada dia do horizonte solicitado.
+
 ## Avaliação: modelo e baseline
 
 ![Comparação registrada do Daily Demand Forecast](docs/assets/metrics.svg)
