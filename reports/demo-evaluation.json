@@ -1,0 +1,72 @@
+{
+  "source": "synthetic-seed42",
+  "observations": 540,
+  "horizon_days": 28,
+  "protocol": "expanding-window; recursive 28-lag features; no holdout updates within a fold",
+  "folds": [
+    {
+      "train_start": "2022-01-01",
+      "train_end": "2023-04-01",
+      "test_start": "2023-04-02",
+      "test_end": "2023-04-29",
+      "training_rows": 456,
+      "model": {
+        "mae": 17.4656,
+        "rmse": 22.1848
+      },
+      "seasonal_naive": {
+        "mae": 15.5,
+        "rmse": 19.1012
+      }
+    },
+    {
+      "train_start": "2022-01-01",
+      "train_end": "2023-04-29",
+      "test_start": "2023-04-30",
+      "test_end": "2023-05-27",
+      "training_rows": 484,
+      "model": {
+        "mae": 24.4743,
+        "rmse": 30.4586
+      },
+      "seasonal_naive": {
+        "mae": 26.0,
+        "rmse": 31.146
+      }
+    },
+    {
+      "train_start": "2022-01-01",
+      "train_end": "2023-05-27",
+      "test_start": "2023-05-28",
+      "test_end": "2023-06-24",
+      "training_rows": 512,
+      "model": {
+        "mae": 26.1485,
+        "rmse": 32.2323
+      },
+      "seasonal_naive": {
+        "mae": 25.3214,
+        "rmse": 32.1797
+      }
+    }
+  ],
+  "aggregate": {
+    "model": {
+      "mae": 22.6961,
+      "rmse": 28.6287
+    },
+    "seasonal_naive": {
+      "mae": 22.2738,
+      "rmse": 28.1097
+    }
+  },
+  "mae_improvement_percent": -1.9,
+  "interpretation": "Positive improvement means lower MAE; negative means the baseline won. No tuning on these folds.",
+  "input_sha256": "d3ee311e4a3a068599dde883b1692e54682e7cd935e626757390c9de2bb26655",
+  "runtime": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.9.1"
+  }
+}

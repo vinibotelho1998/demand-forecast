@@ -1,0 +1,72 @@
+{
+  "source": "uci-bike-sharing",
+  "observations": 731,
+  "horizon_days": 28,
+  "protocol": "expanding-window; recursive 28-lag features; no holdout updates within a fold",
+  "folds": [
+    {
+      "train_start": "2011-01-01",
+      "train_end": "2012-10-08",
+      "test_start": "2012-10-09",
+      "test_end": "2012-11-05",
+      "training_rows": 647,
+      "model": {
+        "mae": 1326.3621,
+        "rmse": 1942.5462
+      },
+      "seasonal_naive": {
+        "mae": 1512.8571,
+        "rmse": 2048.262
+      }
+    },
+    {
+      "train_start": "2011-01-01",
+      "train_end": "2012-11-05",
+      "test_start": "2012-11-06",
+      "test_end": "2012-12-03",
+      "training_rows": 675,
+      "model": {
+        "mae": 947.5585,
+        "rmse": 1335.5176
+      },
+      "seasonal_naive": {
+        "mae": 1310.25,
+        "rmse": 1891.5267
+      }
+    },
+    {
+      "train_start": "2011-01-01",
+      "train_end": "2012-12-03",
+      "test_start": "2012-12-04",
+      "test_end": "2012-12-31",
+      "training_rows": 703,
+      "model": {
+        "mae": 1622.5227,
+        "rmse": 2126.3187
+      },
+      "seasonal_naive": {
+        "mae": 1837.3214,
+        "rmse": 2370.8761
+      }
+    }
+  ],
+  "aggregate": {
+    "model": {
+      "mae": 1298.8144,
+      "rmse": 1832.8779
+    },
+    "seasonal_naive": {
+      "mae": 1553.4762,
+      "rmse": 2112.9998
+    }
+  },
+  "mae_improvement_percent": 16.39,
+  "interpretation": "Positive improvement means lower MAE; negative means the baseline won. No tuning on these folds.",
+  "input_sha256": "beb6b7a9ee94936ef0f8e2f8f108f46374ed657d53051ade181e6f70055709f4",
+  "runtime": {
+    "python": "3.11.9",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.9.1"
+  }
+}
