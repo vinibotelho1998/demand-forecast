@@ -1,0 +1,42 @@
+Plano de commits — Daily Demand Forecast
+
+A sequencia abaixo organiza as mudancas do projeto em commits revisaveis.
+
+1. Definir o contrato dos dados e uma demonstração reproduzível
+   Arquivos: pyproject.toml, requirements.lock, .gitignore, src/demand_forecast/__init__.py,
+   src/demand_forecast/data.py, data/README.md, data/demo.csv, tests/test_data.py
+   git add pyproject.toml requirements.lock .gitignore src/demand_forecast/__init__.py src/demand_forecast/data.py data/README.md data/demo.csv tests/test_data.py
+   git commit -m "feat: adiciona contrato de dados e demonstração reproduzível"
+   Verificar: pytest tests/test_data.py -q
+
+2. Implementar o treino e a previsão recursiva
+   Arquivos: src/demand_forecast/features.py, src/demand_forecast/model.py
+   git add src/demand_forecast/features.py src/demand_forecast/model.py
+   git commit -m "feat: treina modelo com histórico para previsões recursivas"
+   Verificar os lags e o tratamento do histórico antes de avançar.
+
+3. Medir o modelo contra um baseline temporal
+   Arquivos: src/demand_forecast/evaluation.py, src/demand_forecast/cli.py,
+   tests/test_forecasting.py, reports/demo-evaluation.json, reports/uci-evaluation.json
+   git add src/demand_forecast/evaluation.py src/demand_forecast/cli.py tests/test_forecasting.py reports/demo-evaluation.json reports/uci-evaluation.json
+   git commit -m "feat: adiciona avaliação temporal e baseline sazonal"
+   Verificar: pytest tests/test_forecasting.py -q
+
+4. Disponibilizar a previsão por API
+   Arquivos: src/demand_forecast/api.py, tests/test_api.py, .env.example
+   git add src/demand_forecast/api.py tests/test_api.py .env.example
+   git commit -m "feat: disponibiliza previsões e metadados pela API"
+   Verificar: pytest tests/test_api.py -q
+
+5. Documentar o experimento e automatizar a verificação
+   Inclui capa, diagrama, capturas, GIF, painel HTML e metadados da execucao real.
+   Arquivos: README.md, docs/model-card.md, docs/PRESENTATION.md, docs/assets, docs/demo, Dockerfile, .dockerignore,
+   .github/workflows/ci.yml, COMMITS.txt
+   git add README.md docs/model-card.md docs/PRESENTATION.md docs/assets docs/demo Dockerfile .dockerignore .github/workflows/ci.yml COMMITS.txt LICENSE
+   git commit -m "docs: explica premissas do modelo e verificações reproduzíveis"
+   Verificar: pytest -q e os comandos de demonstração do README.
+
+Próximo experimento: avaliar uma série real própria,
+reservar um período final de teste e comparar uma previsão direta de múltiplos
+horizontes com a estratégia recursiva atual.
+

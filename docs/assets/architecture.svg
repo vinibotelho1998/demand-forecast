@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title description">
+<title id="title">Daily Demand Forecast — arquitetura implementada</title>
+<desc id="description">A avaliação reproduz o horizonte real de uso, sem observar o futuro.</desc>
+<g font-family="&#x27;Segoe UI&#x27;, Inter, Arial, sans-serif"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse"><path d="M1 1l5 3-5 3" fill="none" stroke="#53627a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect x="0" y="0" width="1280" height="760" rx="24" fill="#f4f7fb" stroke="none" />
+<rect x="0" y="0" width="1280" height="9" rx="0" fill="#60a5fa" stroke="none" />
+<text x="56" y="55" font-size="14" font-weight="600" fill="#53627a" letter-spacing="1.8">ARCHITECTURE / 02</text>
+<text x="56" y="104" font-size="35" font-weight="700" fill="#0b1220" letter-spacing="-0.6">Daily Demand Forecast</text>
+<text x="56" y="143" font-size="19" font-weight="400" fill="#53627a" >A avaliação reproduz o horizonte real de uso, sem observar o futuro.</text>
+<rect x="1158" y="38" width="66" height="66" rx="16" fill="#0b1220" stroke="none" />
+<text x="1191" y="81" font-size="30" font-weight="700" fill="#60a5fa" text-anchor="middle">02</text>
+<text x="56" y="207" font-size="13" font-weight="600" fill="#53627a" letter-spacing="1.6">DADOS / TREINAMENTO + AVALIAÇÃO</text>
+<rect x="56" y="233" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="56" y="230" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="56" y="251" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="75" y="265" font-size="18" font-weight="650" fill="#0b1220" >CSV diário</text>
+<text x="75" y="295" font-size="16" font-weight="400" fill="#53627a" >Datas consecutivas</text>
+<text x="75" y="318" font-size="16" font-weight="400" fill="#53627a" >Série sintética ou UCI</text>
+<path d="M320 286H350" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="360" y="233" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="360" y="230" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="360" y="251" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="379" y="265" font-size="18" font-weight="650" fill="#0b1220" >Lags + calendário</text>
+<text x="379" y="295" font-size="16" font-weight="400" fill="#53627a" >Só observações passadas</text>
+<text x="379" y="318" font-size="16" font-weight="400" fill="#53627a" >Histórico mínimo: 28 dias</text>
+<path d="M624 286H654" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="664" y="233" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="664" y="230" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="664" y="251" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="683" y="265" font-size="18" font-weight="650" fill="#0b1220" >Backtest temporal</text>
+<text x="683" y="295" font-size="16" font-weight="400" fill="#53627a" >3 folds de 28 dias</text>
+<text x="683" y="318" font-size="16" font-weight="400" fill="#53627a" >MAE / RMSE vs baseline</text>
+<path d="M928 286H958" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="968" y="233" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="968" y="230" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="968" y="251" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="987" y="265" font-size="18" font-weight="650" fill="#0b1220" >Treino + artefato</text>
+<text x="987" y="295" font-size="16" font-weight="400" fill="#53627a" >Gradient boosting</text>
+<text x="987" y="318" font-size="16" font-weight="400" fill="#53627a" >Histórico final persistido</text>
+<text x="56" y="441" font-size="13" font-weight="600" fill="#53627a" letter-spacing="1.6">API / PREVISÃO</text>
+<rect x="56" y="467" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="56" y="464" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="56" y="485" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="75" y="499" font-size="18" font-weight="650" fill="#0b1220" >POST /forecast</text>
+<text x="75" y="529" font-size="16" font-weight="400" fill="#53627a" >Horizonte de 1 a 28 dias</text>
+<text x="75" y="552" font-size="16" font-weight="400" fill="#53627a" >Corpo JSON validado</text>
+<path d="M320 520H350" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="360" y="467" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="360" y="464" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="360" y="485" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="379" y="499" font-size="18" font-weight="650" fill="#0b1220" >FastAPI</text>
+<text x="379" y="529" font-size="16" font-weight="400" fill="#53627a" >Carrega o artefato local</text>
+<text x="379" y="552" font-size="16" font-weight="400" fill="#53627a" >GET /model: metadados</text>
+<path d="M624 520H654" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="664" y="467" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="664" y="464" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="664" y="485" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="683" y="499" font-size="18" font-weight="650" fill="#0b1220" >Previsão recursiva</text>
+<text x="683" y="529" font-size="16" font-weight="400" fill="#53627a" >A previsão entra no</text>
+<text x="683" y="552" font-size="16" font-weight="400" fill="#53627a" >histórico do próximo dia</text>
+<path d="M928 520H958" stroke="#53627a" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+<rect x="968" y="467" width="256" height="112" rx="16" fill="#dbe3ee" stroke="none" opacity=".35"/>
+<rect x="968" y="464" width="256" height="112" rx="16" fill="white" stroke="#d7e0ec" />
+<rect x="968" y="485" width="4" height="25" rx="2" fill="#60a5fa" stroke="none" />
+<text x="987" y="499" font-size="18" font-weight="650" fill="#0b1220" >Resposta JSON</text>
+<text x="987" y="529" font-size="16" font-weight="400" fill="#53627a" >Datas após o artefato</text>
+<text x="987" y="552" font-size="16" font-weight="400" fill="#53627a" >Estimativas não negativas</text>
+<path d="M1096 352V392H488.0V451" stroke="#53627a" stroke-width="1.8" fill="none" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<rect x="666.0" y="374" width="252" height="30" rx="9" fill="#f4f7fb" stroke="none" />
+<text x="792.0" y="394" font-size="14" font-weight="500" fill="#53627a" text-anchor="middle">modelo + últimos valores</text>
+<circle cx="66" cy="644" r="5" fill="#60a5fa"/>
+<text x="83" y="650" font-size="13" font-weight="600" fill="#53627a" letter-spacing="1.0">JANELA DE TREINO CRESCENTE · BASELINE SEMANAL</text>
+<path d="M56 708H1224" stroke="#d7e0ec" stroke-width="1"/>
+<text x="56" y="738" font-size="17" font-weight="400" fill="#53627a" >Sem valores reais do holdout no horizonte; sem clima futuro observado.</text></g>
+</svg>

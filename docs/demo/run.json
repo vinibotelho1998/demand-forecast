@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "project": "02-demand-forecast",
+  "run_id": "fb64fcd462a34679bd6021d3d06c5e38",
+  "kind": "synthetic_fixture",
+  "started_at": "2026-10-27T12:53:34.032708+00:00",
+  "status": "passed",
+  "base_url": "http://127.0.0.1:8002",
+  "data_provenance": {
+    "request": "Horizonte de demonstração; a previsão foi calculada pelo artefato servido.",
+    "serving_source": "synthetic-seed42",
+    "offline_report": "UCI Bike Sharing é evidência separada; não implica que o artefato em execução tenha essa fonte."
+  },
+  "timing_note": "Observed wall time for one execution; not a performance benchmark.",
+  "credentials_saved": false,
+  "steps": [
+    {
+      "id": "model",
+      "title": "Artefato em execução",
+      "timestamp": "2026-10-27T12:53:34.032708+00:00",
+      "endpoint": "http://127.0.0.1:8002/model",
+      "method": "GET",
+      "request": null,
+      "status_code": 200,
+      "response": {
+        "artifact_version": 1,
+        "model": "HistGradientBoostingRegressor",
+        "trained_through": "2023-06-24",
+        "training_rows": 540,
+        "source": "synthetic-seed42",
+        "features": [
+          "day_index",
+          "weekday_sin",
+          "weekday_cos",
+          "year_sin",
+          "year_cos",
+          "lag_1",
+          "lag_7",
+          "lag_14",
+          "mean_7",
+          "mean_28",
+          "std_7"
+        ],
+        "max_horizon_days": 28,
+        "strategy": "recursive"
+      },
+      "duration_ms": 15.659,
+      "status": "passed",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "id": "forecast",
+      "title": "Previsão para sete dias",
+      "timestamp": "2026-10-27T12:53:34.048647+00:00",
+      "endpoint": "http://127.0.0.1:8002/forecast",
+      "method": "POST",
+      "request": {
+        "horizon": 7
+      },
+      "status_code": 200,
+      "response": {
+        "trained_through": "2023-06-24",
+        "strategy": "recursive",
+        "predictions": [
+          {
+            "date": "2023-06-25",
+            "demand": 328.797
+          },
+          {
+            "date": "2023-06-26",
+            "demand": 391.516
+          },
+          {
+            "date": "2023-06-27",
+            "demand": 416.212
+          },
+          {
+            "date": "2023-06-28",
+            "demand": 410.857
+          },
+          {
+            "date": "2023-06-29",
+            "demand": 407.241
+          },
+          {
+            "date": "2023-06-30",
+            "demand": 366.037
+          },
+          {
+            "date": "2023-07-01",
+            "demand": 301.694
+          }
+        ]
+      },
+      "duration_ms": 40.577,
+      "status": "passed",
+      "checks": [
+        {
+          "name": "HTTP 200",
+          "passed": true
+        },
+        {
+          "name": "Sete previsões finitas",
+          "passed": true
+        },
+        {
+          "name": "Data de corte do artefato preservada",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "model": "HistGradientBoostingRegressor",
+    "serving_source": "synthetic-seed42",
+    "trained_through": "2023-06-24",
+    "horizon": 7,
+    "strategy": "recursive",
+    "predictions": [
+      {
+        "date": "2023-06-25",
+        "demand": 328.797
+      },
+      {
+        "date": "2023-06-26",
+        "demand": 391.516
+      },
+      {
+        "date": "2023-06-27",
+        "demand": 416.212
+      },
+      {
+        "date": "2023-06-28",
+        "demand": 410.857
+      },
+      {
+        "date": "2023-06-29",
+        "demand": 407.241
+      },
+      {
+        "date": "2023-06-30",
+        "demand": 366.037
+      },
+      {
+        "date": "2023-07-01",
+        "demand": 301.694
+      }
+    ]
+  },
+  "supporting_evidence": [
+    {
+      "kind": "recorded_offline_evaluation",
+      "path": "reports/uci-evaluation.json",
+      "sha256": "56548e225e68708edd483dcfcee6dca27f37daaf8bc850d48829018fc516cb85",
+      "read_at": "2026-10-27T12:53:34.089228+00:00",
+      "note": "Existing report read from disk; evaluation was not rerun by this capture script.",
+      "report": {
+        "source": "uci-bike-sharing",
+        "observations": 731,
+        "horizon_days": 28,
+        "protocol": "expanding-window; recursive 28-lag features; no holdout updates within a fold",
+        "folds": [
+          {
+            "train_start": "2011-01-01",
+            "train_end": "2012-10-08",
+            "test_start": "2012-10-09",
+            "test_end": "2012-11-05",
+            "training_rows": 647,
+            "model": {
+              "mae": 1326.3621,
+              "rmse": 1942.5462
+            },
+            "seasonal_naive": {
+              "mae": 1512.8571,
+              "rmse": 2048.262
+            }
+          },
+          {
+            "train_start": "2011-01-01",
+            "train_end": "2012-11-05",
+            "test_start": "2012-11-06",
+            "test_end": "2012-12-03",
+            "training_rows": 675,
+            "model": {
+              "mae": 947.5585,
+              "rmse": 1335.5176
+            },
+            "seasonal_naive": {
+              "mae": 1310.25,
+              "rmse": 1891.5267
+            }
+          },
+          {
+            "train_start": "2011-01-01",
+            "train_end": "2012-12-03",
+            "test_start": "2012-12-04",
+            "test_end": "2012-12-31",
+            "training_rows": 703,
+            "model": {
+              "mae": 1622.5227,
+              "rmse": 2126.3187
+            },
+            "seasonal_naive": {
+              "mae": 1837.3214,
+              "rmse": 2370.8761
+            }
+          }
+        ],
+        "aggregate": {
+          "model": {
+            "mae": 1298.8144,
+            "rmse": 1832.8779
+          },
+          "seasonal_naive": {
+            "mae": 1553.4762,
+            "rmse": 2112.9998
+          }
+        },
+        "mae_improvement_percent": 16.39,
+        "interpretation": "Positive improvement means lower MAE; negative means the baseline won. No tuning on these folds.",
+        "input_sha256": "beb6b7a9ee94936ef0f8e2f8f108f46374ed657d53051ade181e6f70055709f4",
+        "runtime": {
+          "python": "3.11.9",
+          "numpy": "2.4.6",
+          "pandas": "2.3.3",
+          "scikit_learn": "1.9.1"
+        }
+      }
+    }
+  ],
+  "finished_at": "2026-10-27T12:53:34.089228+00:00"
+}

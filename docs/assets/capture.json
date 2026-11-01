@@ -1,0 +1,30 @@
+{
+  "source": "Browser screenshots of the recorded API presentation; not AI-generated images.",
+  "capture_run_id": "fb64fcd462a34679bd6021d3d06c5e38",
+  "api_capture_started_at": "2026-10-27T12:53:34.032708+00:00",
+  "api_capture_finished_at": "2026-10-27T12:53:34.089228+00:00",
+  "encoded_at": "2026-10-27T13:04:09.676634+00:00",
+  "dimensions": [
+    1265,
+    730
+  ],
+  "frames": 2,
+  "timing": "Replay holds are for readability, not measured request duration.",
+  "source_record": "../demo/run.json",
+  "screenshot_sha256": "5d1aca65cf1fb1a520e051f168283bab031f07d2c945ca03701400f861c3d9fa",
+  "gif_sha256": "598a74a3b8ae73b954c9eaf1266a621f3a540a30e975d8e39f45ebbc67f5e85e",
+  "steps": [
+    {
+      "id": "model",
+      "title": "Artefato em execução",
+      "hold_ms": 1800,
+      "frame_sha256": "fdf1ac3867392cb3615cc3ce694cf27c62bf364c745b11cffeccdb70f314f977"
+    },
+    {
+      "id": "forecast",
+      "title": "Previsão para sete dias",
+      "hold_ms": 2800,
+      "frame_sha256": "5d1aca65cf1fb1a520e051f168283bab031f07d2c945ca03701400f861c3d9fa"
+    }
+  ]
+}
